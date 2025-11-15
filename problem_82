@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int mat[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int size = 3;
+    int trace = 0;
+    int sumSquares = 0;
+
+    // Calculate trace and sum of squares for norm
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (i == j) {
+                trace += mat[i][j]; // sum of diagonal elements
+            }
+            sumSquares += mat[i][j] * mat[i][j]; // for norm
+        }
+    }
+
+    double norm = sqrt(sumSquares);
+
+    printf("Trace of the matrix: %d\n", trace);
+    printf("Norm of the matrix: %.2f\n", norm);
+
+    return 0;
+}
