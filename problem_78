@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int arr[3][3] = {
+        {30, 10, 20},
+        {25, 15, 35},
+        {40, 50, 45}
+    };
+    int rows = 3, cols = 3;
+    int i, j, k, temp;
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols - 1; j++) {
+            for (k = j + 1; k < cols; k++) {
+                if (arr[i][j] > arr[i][k]) {
+                    temp = arr[i][j];
+                    arr[i][j] = arr[i][k];
+                    arr[i][k] = temp;
+                }
+            }
+        }
+    }
+    printf("2D Array after sorting each row:\n");
+    for (i = 0; i < rows; i++) {
+        for (j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
